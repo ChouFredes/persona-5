@@ -1,0 +1,280 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #f6f6f6;
+  background: #090909;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 1.25rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #090909;
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.42));
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+.app-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 4.6rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-tag {
+  background: #e50202;
+  border: 2px solid #fff;
+  font-weight: 800;
+  padding: 0.45rem 0.6rem;
+  transform: rotate(-8deg);
+}
+
+.codename {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.45rem 0.75rem;
+  background: rgba(10, 10, 10, 0.65);
+  transform: skew(-13deg);
+  backdrop-filter: blur(2px);
+}
+
+.menu-item-active {
+  background: #e50202;
+  border-color: #fff;
+}
+
+.date-climate-widget {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.9rem;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.55rem 0.7rem;
+  min-width: 235px;
+  clip-path: polygon(0 0, 94% 0, 100% 24%, 100% 100%, 6% 100%, 0 78%);
+  z-index: 3;
+}
+
+.hud-day,
+.hud-time,
+.hud-climate,
+.hud-climate-fallback {
+  margin: 0;
+}
+
+.hud-day {
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffc7c7;
+}
+
+.hud-time {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.hud-climate {
+  font-size: 0.85rem;
+}
+
+.hud-climate-fallback {
+  font-size: 0.72rem;
+  color: #ff9d9d;
+}
+
+.page-frame {
+  max-width: 900px;
+}
+
+.section-kicker {
+  margin: 0;
+  color: #ff5c5c;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.page-frame h2 {
+  margin-top: 0.35rem;
+  font-size: 2rem;
+}
+
+.content-panel {
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  transform: skew(-2deg);
+  backdrop-filter: blur(1px);
+}
+
+.card-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.menu-card {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(120deg, #e50202, #841313);
+  clip-path: polygon(8% 0%, 100% 0%, 93% 100%, 0% 100%);
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.music-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 0.55rem 0.7rem;
+}
+
+.music-button {
+  border: 1px solid #fff;
+  background: #e50202;
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transform: skew(-12deg);
+}
+
+.music-button.ghost {
+  background: transparent;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.track-title {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ffb7b7;
+}
+
+.disclaimer {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 0.75rem;
+}
+
+.route-transition {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.route-transition-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.route-transition-layer.red {
+  background: #d40000;
+}
+
+.route-transition-layer.black {
+  background: #080808;
+  clip-path: polygon(13% 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.route-transition-layer.white {
+  background: #f2f2f2;
+  clip-path: polygon(18% 0, 100% 0, 90% 100%, 5% 100%);
+  mix-blend-mode: overlay;
+  opacity: 0.24;
+}
+
+@media (max-width: 760px) {
+  
+.app-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+    margin-top: 5.5rem;
+  }
+
+  .date-climate-widget {
+    min-width: 205px;
+  }
+}
