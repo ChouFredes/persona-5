@@ -1,25 +1,13 @@
+import { Link, NavLink } from 'react-router-dom';
 import { MotionConfig } from 'framer-motion';
 import type { PropsWithChildren } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { fallbackBackground, routeBackgrounds } from '../content/backgrounds';
-import { navItems, site } from '../content/site';
-import { DateClimateWidget } from './DateClimateWidget';
+import { site, navItems } from '../content/site';
 import { MusicSlider } from './MusicSlider';
 
 export function Layout({ children }: PropsWithChildren) {
-  const location = useLocation();
-  const backgroundImage = routeBackgrounds[location.pathname] ?? fallbackBackground;
-
   return (
     <MotionConfig transition={{ duration: 0.35, ease: 'easeOut' }}>
-      <div
-        className="app-shell"
-        style={{
-          backgroundImage: `linear-gradient(120deg, rgba(0,0,0,0.58), rgba(11,11,11,0.66)), url(${backgroundImage})`,
-        }}
-      >
-        <DateClimateWidget />
-
+      <div className="app-shell">
         <header className="topbar">
           <Link to="/" className="brand">
             <span className="brand-tag">P5</span>
